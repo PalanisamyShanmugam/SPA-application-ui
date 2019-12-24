@@ -1,0 +1,9 @@
+.active{
+    color:black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.inactive{
+    font-weight: 500;
+    text-decoration: none;
+}

@@ -1,0 +1,61 @@
+<form [formGroup]="addUser">
+   <table>
+    <tr>
+        <td  style="width:170px;">First Name</td>
+        <td> <input type="text"  name="fName" formControlName="fname"></td>
+    </tr>
+    <tr>
+         <td>Last Name</td>
+        <td><input type="text"  name="lName" formControlName="lname"></td>
+    </tr>
+    <tr>
+        <td>Employee</td>
+        <td><input type="text"  name="employee" formControlName="employee"></td>
+    </tr>
+     <tr>
+        <td>&nbsp;</td>
+        <td><button type="button" label="Click" (click)="AddUser(addUser)">Add</button> &nbsp;&nbsp;<button type="button" label="Click" (click)="reset(addUser)">Reset</button></td>
+    </tr>
+</table>
+<hr>
+<table>
+    <tr>
+        <td><input type="text" name="serachTask"  (keyup)="serachTask(addUser)" formControlName="serachTask" ></td>
+        <td>Sort:</td>
+        <td><button type="button" label="Click" (click)="sortByFName(addUser)">First Name</button> &nbsp;&nbsp;<button type="button" label="Click" (click)="sortByLName(addUser)">Last Name</button>&nbsp;&nbsp;<button type="button" label="Click" (click)="SortById(addUser)">ID</button></td>
+    </tr>
+</table>
+<hr style="border:1px  dashed gray;">
+
+
+<table style="width:60%;">
+    <tr class="border_bottom" *ngFor="let user of user?.userInfo;let i = index">
+      <td class="border_line" style="width:250px;">
+          <table>
+              <tr>
+                <td ><input type="text" id="fname{{i}}"  name="efname" formControlName="efname" value="{{user.first_name}}"><input type="hidden" id="userId{{i}}" value="{{user.user_id}}"></td>
+                
+              </tr>
+              <tr>
+                <td><input type="text"  id="lname{{i}}" name="employee" formControlName="elname" value="{{user.last_name}}"></td>
+                
+              </tr>
+              <tr>
+                <td><input type="text" id="eid{{i}}"  name="employee" formControlName="eid" value="{{user.employee_id}}"></td>
+              </tr>
+              
+          </table>
+          
+      </td>
+      <td class="border_line">
+        <button type="button" label="Click" (click)="editUser(i)">EDIT</button><br><br><br>
+        <button type="button" label="Click" (click)="deleteTask(i)">DELETE</button>
+        
+      </td>
+      
+        
+    </tr>
+    
+</table>
+
+</form>

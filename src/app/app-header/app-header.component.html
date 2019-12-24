@@ -1,0 +1,44 @@
+<!--<div class="daydetail">
+    <h1>Project</h1>
+    <button type="button" label="Click" (click)="toggleChild('showProject')">showProject</button>
+    <div *ngIf="'showProject'==showVar">
+        <app-project [showProject]="showProject"></app-project>
+    </div>
+</div>
+
+<div class="daydetail">
+    <h1>Task</h1>
+    <button type="button" label="Click" (click)="toggleChild('showTask')">showTask</button>
+    <div *ngIf="'showTask'==showVar">
+        <app-tasks [showTask]="showTask"></app-tasks>
+    </div>
+</div>
+<div class="daydetail">
+    <h1>User</h1>
+    <button type="button" label="Click" (click)="toggleChild('showUser')">showUser</button>
+    <div *ngIf="'showUser'==showVar">
+        <app-users [showUser]="showUser"></app-users>
+    </div>
+</div>-->
+<table style="width:100%;border: 1px solid white;background: #d6d2d2;color: black;">
+    <tr >
+        <td (click)="toggleChild('showProject')"><span [className]="'showProject'==showVar ? 'active' : 'inactive'">Add Project</span></td>
+        <td (click)="toggleChild('showTask')"><span [className]="'showTask'==showVar ? 'active' : 'inactive'">Add Task</span></td>
+        <td (click)="toggleChild('showUser')"><span [className]="'showUser'==showVar ? 'active' : 'inactive'">Add User</span></td>
+        <td (click)="toggleChild('showVTask')"><span [className]="'showVTask'==showVar ? 'active' : 'inactive'">View Task</span></td>
+    </tr>
+</table>
+
+<div *ngIf="'showProject'==showVar">
+    <app-project [showProject]="showProject"></app-project>
+</div>
+<div *ngIf="'showTask'==showVar">
+    <app-tasks [showTask]="showTask"></app-tasks>
+</div>
+<div *ngIf="'showUser'==showVar">
+    <app-users [showUser]="showUser"></app-users>
+</div>
+
+<div *ngIf="'showVTask'==showVar">
+        <app-view-task [showVTask]="showVTask"></app-view-task>
+    </div>

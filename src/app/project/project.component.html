@@ -1,0 +1,91 @@
+<form [formGroup]="checkoutForm">
+<table>
+    <tr>
+        <td style="width:100px;">Project</td>
+        <td><input type="text" id="project" formControlName="project"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><input type="checkbox">Set Start Date and End Date<input type="date" id="startdate" formControlName="startdate">&nbsp;&nbsp;<input type="date" id="enddate" formControlName="enddate"></td>
+        </tr>
+    <tr>
+        <td>Priority</td>
+        <td>
+            <div class="slidecontainer">
+                <input id="Priority"  class="slider" formControlName="Priority" type="range" id="start" name="volume"
+                       min="0" max="30"  value="0" step="1">
+                
+              </div>
+        </td>
+        </tr>
+        <tr>
+            <td>Manager</td>
+            <td><input type="text" id="Manager" formControlName="Manager"></td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td><button type="button" label="Click" (click)="AddProject(checkoutForm)">Add</button> &nbsp; &nbsp; <button type="button" label="Click" (click)="reset()">Reset</button></td>
+            </tr>
+</table>
+<br><br>
+
+<table>
+    <tr>
+        <td style="width:100px;">Sort By:</td>
+        <td><input type="button" id="startdate" value="Start Date" (click)="sortByStartDate()"></td>
+        <td><input type="button" id="enddate" value="End Date" (click)="sortByEndDate()"></td>
+        <td><input type="button" id="Priority" value="Priority" (click)="sortByPriority()"></td>
+        <td><input type="button" id="Completed" value="Completed" (click)="sortByCompleted()"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td colspan="4"><input type="text" placeholder="Search" name="Search" (keyup)="searchValue(projects)" formControlName="serachProject"></td>
+    </tr>
+</table>
+</form>
+<ul>
+  <li *ngFor="let project of projects?.projectInfo">
+  
+    <div style="padding:10px;width:450px; height: 100px; background:#d6d2d2;display: inline-block;vertical-align: bottom;">
+        {{project.project | uppercase }}:
+        <table style="width:100%;">
+            <tr>
+                <td>No Of Tasks</td>
+                <td>{{project.noOfTasks}} </td>
+                <td>Completed</td>
+                <td>{{project.completedTasks}} </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Start Date</td>
+                <td>{{project.start_date}}</td>
+                <td>End Date</td>
+                <td>{{project.end_date}}</td>
+            </tr>
+        </table>
+    </div>
+    <div style="margin-left:5px;width:100px;display: inline-block;vertical-align: bottom;">
+        Priority
+        <table style="background:#d6d2d2;width:100%;height: 100px;">
+            <tr>
+                <td>{{project.priority}} </td>
+            </tr>
+            <tr>
+                <td>&nbsp; </td>
+            </tr>
+        </table>
+    </div>
+<div style="margin-left:5px;width:100px;background:#ffffff;display: inline-block;vertical-align: bottom;">
+    <!-- <table>
+        <tr>
+            <td><input type="button" value="Update"> </td>
+        </tr>
+        <tr>
+              <td><input type="button" value="Suspend"> </td>
+        </tr>
+    </table> --><div style="margin: 10px 10px 30px 10px;"><input type="button" value="Update"><br></div>
+    <div style="margin: 10px 10px 20px 10px;"> <input type="button" value="Suspend"> </div>
+</div><br>
+<br>
+  </li>
+</ul>

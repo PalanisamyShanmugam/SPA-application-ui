@@ -1,0 +1,9 @@
+form td{
+    height: 30px;
+}
+tr.border_bottom .border_line {
+    border-bottom:1pt dashed gray;
+  }
+  .border_line input{
+    background: #d6d2d2;
+  }

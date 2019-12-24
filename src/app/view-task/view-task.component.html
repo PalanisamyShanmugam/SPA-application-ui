@@ -1,0 +1,50 @@
+<form [formGroup]="viewTask">
+<div style="height:50px"></div>
+    <table>
+        <tr>
+            <td>Project:</td>
+            <td><input type="text" id="searchProject" name="searchProject" formControlName="searchProject"></td>
+            <td><button (click)="searchproject()">Serach</button></td>
+            <td>Sort Task By:</td>
+            <td><button (click)="getSortTaskByStartDate(viewTask)">Start Date</button></td>
+            <td><button (click)="getSortTaskByEndDate(viewTask)">End Date</button></td>
+            <td><button (click)="getSortTaskByPriority(viewTask)">Priority</button></td>
+            <td><button (click)="getSortTaskByCompletedStatus(viewTask)">Completed</button></td>
+        </tr>
+    </table>
+
+    <div style="height:50px"></div>
+    <hr style="border:1px dashed gray">
+    <div style="height:20px"></div>
+    <div *ngFor="let task of tasks?.taskInfo;let i = index">
+        <div style="display:inline-block;margin-bottom: 5px;">
+        <div>Task</div>
+        <div style="width:150px;background: #d6d2d2;height:100px;margin-left: 5px;">{{task.task}}</div>
+        </div>  
+        <div style="display:inline-block;margin-bottom: 5px;">
+            <div>Parent task</div>
+            <div style="width:150px;background: #d6d2d2;height:100px;margin-left: 5px;margin-right: 5px;">{{task.parent_task}}</div>
+            </div> 
+
+        <div style="display:inline-block;margin-bottom: 5px;">
+            <div>Priority</div>
+            <div style="width:100px;">{{task.priority}}</div>
+        </div> 
+        <div style="display:inline-block;margin-bottom: 5px;">
+            <div>Start</div>
+            <div style="width: 100px;">{{task.start_date}}</div>
+        </div> 
+        <div style="display:inline-block;margin-bottom: 5px;">
+            <div>End</div>
+            <div  style="width: 100px;">{{task.end_date}}</div>
+        </div> 
+        <div style="display:inline-block;margin-bottom: 5px;">
+            <div>&nbsp;</div>
+            <div style="width: 70px;"><button>EDIT</button></div>
+        </div>
+        <div style="display:inline-block;margin-bottom: 5px;">
+            <div>&nbsp;</div>
+            <div><button (click)="deleteTaskDetails(task.task_id)">DELETE</button></div>
+        </div>
+    </div>
+</form>

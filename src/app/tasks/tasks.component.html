@@ -1,0 +1,44 @@
+<form [formGroup]="addTask">
+     <table border="0">
+        <tr>
+            <td style="width:100px;">Projects</td>
+            <td><input type="text" name="project" formControlName="listProject">&nbsp;&nbsp;<button  class="searchButton" type="button" label="Click" (click)="searchProject(addTask)">Search</button>
+                <input type="hidden" name="project" formControlName="listProjectid">
+            </td>
+        </tr>
+        <tr>
+            <td>Task</td>
+            <td>
+                    <input type="text" name="task" formControlName="task">
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td><input type="checkbox" formControlName="parentTaskChk" value="false" (change)="parentTaskChk()">Parent Task</td>
+        </tr>
+        <tr>
+            <td>Priority</td>
+            <td>
+                    <input id="tPriority"  class="slider" [attr.disabled]="parentFlag? true : null" formControlName="tPriority" type="range" id="start" name="volume"
+                    min="0" max="30"  value="0" step="1">
+            </td>
+        </tr>
+    
+    
+    <tr>
+        <td>Parent Task</td>
+        <td>
+            <input type="hidden" name="parentid" formControlName="parent_id"> <input type="text" name="parentTask" [attr.disabled]="parentFlag? true : null" formControlName="parentTask">&nbsp;&nbsp;<button  class="searchButton" type="button" label="Click" (click)="searchParent(addTask)">Search</button>
+        </td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>Start Date &nbsp;&nbsp;<input type="date" name="startDate"  [attr.disabled]="parentFlag? true : null" formControlName="sDate">&nbsp;&nbsp;
+        End Date&nbsp;&nbsp;<input type="date" name="endDate" [attr.disabled]="parentFlag? true : null" formControlName="eDate"></td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><button type="button" label="Click" (click)="AddTask(addTask)">Add Task</button> &nbsp;&nbsp;<button type="button" label="Click" (click)="reset(addTask)">Reset</button></td>
+    </tr>
+</table>
+    </form>
